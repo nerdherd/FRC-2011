@@ -1,6 +1,6 @@
 SimpleTemplate_partialImage/Debug/Objects/SimpleTemplate/MyRobot.o:  \
  C:/WindRiver/workspace/SimpleTemplate/MyRobot.cpp \
-  C:/WindRiver/workspace/WPILib/WPILib.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/vxworks-6.3/target/h/string.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxCpu.h \
@@ -95,99 +95,103 @@ SimpleTemplate_partialImage/Debug/Objects/SimpleTemplate/MyRobot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/vwModNum.h \
   C:/WindRiver/vxworks-6.3/target/h/base/b_struct_timespec.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo.h \
-  C:/WindRiver/workspace/WPILib/Accelerometer.h \
-  C:/WindRiver/workspace/WPILib/AnalogChannel.h \
-  C:/WindRiver/workspace/WPILib/SensorBase.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/NiRio.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/NiRioStatus.h \
-  C:/WindRiver/workspace/WPILib/ErrorBase.h \
-  C:/WindRiver/workspace/WPILib/Base.h \
-  C:/WindRiver/workspace/WPILib/ChipObject.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tAccumulator.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tScopedSystem.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/ExpectedFPGASignature.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tSystem.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/NiRio.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tDMAChannelDescriptor.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tAI.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tAlarm.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tAnalogTrigger.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tCounter.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tDIO.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tDMA.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tDMAManager.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tEncoder.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tGlobal.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tInterrupt.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tInterruptManager.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Accelerometer.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogChannel.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRio.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRioStatus.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Base.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAccumulator.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tScopedSystem.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/ExpectedFPGASignature.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSystem.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRio.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMAChannelDescriptor.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAI.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAlarm.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAnalogTrigger.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tCounter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDIO.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMA.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMAManager.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tEncoder.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tGlobal.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tInterrupt.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tInterruptManager.h \
   C:/WindRiver/vxworks-6.3/target/h/semLib.h \
   C:/WindRiver/vxworks-6.3/target/h/vwModNum.h \
   C:/WindRiver/vxworks-6.3/target/h/semLibCommon.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tSolenoid.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tSPI.h \
-  C:/WindRiver/workspace/WPILib/ChipObject/tWatchdog.h \
-  C:/WindRiver/workspace/WPILib/Error.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSolenoid.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSPI.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tWatchdog.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Error.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/string \
-  C:/WindRiver/workspace/WPILib/PIDSource.h \
-  C:/WindRiver/workspace/WPILib/ADXL345_I2C.h \
-  C:/WindRiver/workspace/WPILib/AnalogModule.h \
-  C:/WindRiver/workspace/WPILib/Module.h \
-  C:/WindRiver/workspace/WPILib/AnalogTrigger.h \
-  C:/WindRiver/workspace/WPILib/AnalogTriggerOutput.h \
-  C:/WindRiver/workspace/WPILib/DigitalSource.h \
-  C:/WindRiver/workspace/WPILib/InterruptableSensorBase.h \
-  C:/WindRiver/workspace/WPILib/CANJaguar.h \
-  C:/WindRiver/workspace/WPILib/MotorSafety.h \
-  C:/WindRiver/workspace/WPILib/MotorSafetyHelper.h \
-  C:/WindRiver/workspace/WPILib/PIDOutput.h \
-  C:/WindRiver/workspace/WPILib/SpeedController.h \
-  C:/WindRiver/workspace/WPILib/Compressor.h \
-  C:/WindRiver/workspace/WPILib/Relay.h \
-  C:/WindRiver/workspace/WPILib/Task.h \
-  C:/WindRiver/workspace/WPILib/Counter.h \
-  C:/WindRiver/workspace/WPILib/CounterBase.h \
-  C:/WindRiver/workspace/WPILib/Dashboard.h \
-  C:/WindRiver/workspace/WPILib/DashboardBase.h \
-  C:/WindRiver/workspace/WPILib/NetworkCommunication/FRCComm.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ADXL345_I2C.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ADXL345_SPI.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogModule.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Module.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogTrigger.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogTriggerOutput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalSource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/InterruptableSensorBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CANJaguar.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafety.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafetyHelper.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDOutput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SpeedController.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/deque \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/memory \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/vector \
-  C:/WindRiver/workspace/WPILib/DigitalInput.h \
-  C:/WindRiver/workspace/WPILib/DigitalModule.h \
-  C:/WindRiver/workspace/WPILib/DigitalOutput.h \
-  C:/WindRiver/workspace/WPILib/DriverStation.h \
-  C:/WindRiver/workspace/WPILib/DriverStationEnhancedIO.h \
-  C:/WindRiver/workspace/WPILib/DriverStationLCD.h \
-  C:/WindRiver/workspace/WPILib/Encoder.h \
-  C:/WindRiver/workspace/WPILib/GearTooth.h \
-  C:/WindRiver/workspace/WPILib/GenericHID.h \
-  C:/WindRiver/workspace/WPILib/Gyro.h \
-  C:/WindRiver/workspace/WPILib/HiTechnicCompass.h \
-  C:/WindRiver/workspace/WPILib/I2C.h \
-  C:/WindRiver/workspace/WPILib/IterativeRobot.h \
-  C:/WindRiver/workspace/WPILib/Timer.h \
-  C:/WindRiver/workspace/WPILib/RobotBase.h \
-  C:/WindRiver/workspace/WPILib/Watchdog.h \
-  C:/WindRiver/workspace/WPILib/Jaguar.h \
-  C:/WindRiver/workspace/WPILib/SafePWM.h \
-  C:/WindRiver/workspace/WPILib/PWM.h \
-  C:/WindRiver/workspace/WPILib/Joystick.h \
-  C:/WindRiver/workspace/WPILib/Notifier.h \
-  C:/WindRiver/workspace/WPILib/PIDController.h \
-  C:/WindRiver/workspace/WPILib/Resource.h \
-  C:/WindRiver/workspace/WPILib/RobotDrive.h \
-  C:/WindRiver/workspace/WPILib/SerialPort.h \
-  C:/WindRiver/workspace/WPILib/Servo.h \
-  C:/WindRiver/workspace/WPILib/SimpleRobot.h \
-  C:/WindRiver/workspace/WPILib/SmartDashboard.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotDrive.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SerialPort.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SimpleRobot.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xtree \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/functional \
-  C:/WindRiver/workspace/WPILib/Solenoid.h \
-  C:/WindRiver/workspace/WPILib/Synchronized.h \
-  C:/WindRiver/workspace/WPILib/Ultrasonic.h \
-  C:/WindRiver/workspace/WPILib/Utility.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/SPI.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Synchronized.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Ultrasonic.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h \
   C:/WindRiver/vxworks-6.3/target/h/taskLib.h \
   C:/WindRiver/vxworks-6.3/target/h/classLib.h \
   C:/WindRiver/vxworks-6.3/target/h/qLib.h \
@@ -222,8 +226,8 @@ SimpleTemplate_partialImage/Debug/Objects/SimpleTemplate/MyRobot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/arch/ppc/coprocPpc.h \
   C:/WindRiver/vxworks-6.3/target/h/copyright_wrs.h \
   C:/WindRiver/vxworks-6.3/target/h/sys/taskDefs.h \
-  C:/WindRiver/workspace/WPILib/Victor.h \
-  C:/WindRiver/workspace/WPILib/Vision/AxisCamera.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Victor.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/AxisCamera.h \
   C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/sockLib.h \
   C:/WindRiver/vxworks-6.3/target/h/sys/times.h \
   C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/sys/socket.h \
@@ -249,27 +253,27 @@ SimpleTemplate_partialImage/Debug/Objects/SimpleTemplate/MyRobot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/net/route.h \
   C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/route/ipRouteLib.h \
   C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/arpa/inet.h \
-  C:/WindRiver/workspace/WPILib/Vision/AxisCameraParams.h \
-  C:/WindRiver/workspace/WPILib/Vision/EnumCameraParameter.h \
-  C:/WindRiver/workspace/WPILib/Vision/IntCameraParameter.h \
-  C:/WindRiver/workspace/WPILib/ErrorBase.h \
-  C:/WindRiver/workspace/WPILib/Task.h \
-  C:/WindRiver/workspace/WPILib/Vision/ColorImage.h \
-  C:/WindRiver/workspace/WPILib/Vision/ImageBase.h \
-  C:/WindRiver/workspace/WPILib/nivision.h \
-  C:/WindRiver/workspace/WPILib/Utility.h \
-  C:/WindRiver/workspace/WPILib/Vision/BinaryImage.h \
-  C:/WindRiver/workspace/WPILib/Vision/MonoImage.h \
-  C:/WindRiver/workspace/WPILib/Vision2009/VisionAPI.h \
-  C:/WindRiver/workspace/WPILib/nivision.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/AxisCameraParams.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/EnumCameraParameter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/IntCameraParameter.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ImageBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/nivision.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/BinaryImage.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/MonoImage.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/nivision.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/algorithm \
-  C:/WindRiver/workspace/WPILib/Vision/Threshold.h \
-  C:/WindRiver/workspace/WPILib/Vision/HSLImage.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/Threshold.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/set \
-  C:/WindRiver/workspace/WPILib/WPIStatus.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIStatus.h \
   c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iostream
 
-C:/WindRiver/workspace/WPILib/WPILib.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
 C:/WindRiver/vxworks-6.3/target/h/string.h:
 
@@ -459,55 +463,55 @@ C:/WindRiver/vxworks-6.3/target/h/base/b_struct_timespec.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo.h:
 
-C:/WindRiver/workspace/WPILib/Accelerometer.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Accelerometer.h:
 
-C:/WindRiver/workspace/WPILib/AnalogChannel.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogChannel.h:
 
-C:/WindRiver/workspace/WPILib/SensorBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SensorBase.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/NiRio.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRio.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/NiRioStatus.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRioStatus.h:
 
-C:/WindRiver/workspace/WPILib/ErrorBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h:
 
-C:/WindRiver/workspace/WPILib/Base.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Base.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tAccumulator.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAccumulator.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tScopedSystem.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tScopedSystem.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/ExpectedFPGASignature.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/ExpectedFPGASignature.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tSystem.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSystem.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/NiRio.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRio.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tDMAChannelDescriptor.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMAChannelDescriptor.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tAI.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAI.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tAlarm.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAlarm.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tAnalogTrigger.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tAnalogTrigger.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tCounter.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tCounter.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tDIO.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDIO.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tDMA.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMA.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tDMAManager.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tDMAManager.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tEncoder.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tEncoder.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tGlobal.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tGlobal.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tInterrupt.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tInterrupt.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tInterruptManager.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tInterruptManager.h:
 
 C:/WindRiver/vxworks-6.3/target/h/semLib.h:
 
@@ -515,57 +519,59 @@ C:/WindRiver/vxworks-6.3/target/h/vwModNum.h:
 
 C:/WindRiver/vxworks-6.3/target/h/semLibCommon.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tSolenoid.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSolenoid.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tSPI.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tSPI.h:
 
-C:/WindRiver/workspace/WPILib/ChipObject/tWatchdog.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/tWatchdog.h:
 
-C:/WindRiver/workspace/WPILib/Error.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Error.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/string:
 
-C:/WindRiver/workspace/WPILib/PIDSource.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDSource.h:
 
-C:/WindRiver/workspace/WPILib/ADXL345_I2C.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ADXL345_I2C.h:
 
-C:/WindRiver/workspace/WPILib/AnalogModule.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ADXL345_SPI.h:
 
-C:/WindRiver/workspace/WPILib/Module.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogModule.h:
 
-C:/WindRiver/workspace/WPILib/AnalogTrigger.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Module.h:
 
-C:/WindRiver/workspace/WPILib/AnalogTriggerOutput.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogTrigger.h:
 
-C:/WindRiver/workspace/WPILib/DigitalSource.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/AnalogTriggerOutput.h:
 
-C:/WindRiver/workspace/WPILib/InterruptableSensorBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalSource.h:
 
-C:/WindRiver/workspace/WPILib/CANJaguar.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/InterruptableSensorBase.h:
 
-C:/WindRiver/workspace/WPILib/MotorSafety.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CANJaguar.h:
 
-C:/WindRiver/workspace/WPILib/MotorSafetyHelper.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafety.h:
 
-C:/WindRiver/workspace/WPILib/PIDOutput.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/MotorSafetyHelper.h:
 
-C:/WindRiver/workspace/WPILib/SpeedController.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDOutput.h:
 
-C:/WindRiver/workspace/WPILib/Compressor.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SpeedController.h:
 
-C:/WindRiver/workspace/WPILib/Relay.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Compressor.h:
 
-C:/WindRiver/workspace/WPILib/Task.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h:
 
-C:/WindRiver/workspace/WPILib/Counter.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
 
-C:/WindRiver/workspace/WPILib/CounterBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Counter.h:
 
-C:/WindRiver/workspace/WPILib/Dashboard.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/CounterBase.h:
 
-C:/WindRiver/workspace/WPILib/DashboardBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h:
 
-C:/WindRiver/workspace/WPILib/NetworkCommunication/FRCComm.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stack:
 
@@ -575,61 +581,65 @@ c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/vector:
 
-C:/WindRiver/workspace/WPILib/DigitalInput.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalInput.h:
 
-C:/WindRiver/workspace/WPILib/DigitalModule.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalModule.h:
 
-C:/WindRiver/workspace/WPILib/DigitalOutput.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DigitalOutput.h:
 
-C:/WindRiver/workspace/WPILib/DriverStation.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h:
 
-C:/WindRiver/workspace/WPILib/DriverStationEnhancedIO.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h:
 
-C:/WindRiver/workspace/WPILib/DriverStationLCD.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h:
 
-C:/WindRiver/workspace/WPILib/Encoder.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h:
 
-C:/WindRiver/workspace/WPILib/GearTooth.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h:
 
-C:/WindRiver/workspace/WPILib/GenericHID.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationLCD.h:
 
-C:/WindRiver/workspace/WPILib/Gyro.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Encoder.h:
 
-C:/WindRiver/workspace/WPILib/HiTechnicCompass.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/GearTooth.h:
 
-C:/WindRiver/workspace/WPILib/I2C.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h:
 
-C:/WindRiver/workspace/WPILib/IterativeRobot.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Gyro.h:
 
-C:/WindRiver/workspace/WPILib/Timer.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/HiTechnicCompass.h:
 
-C:/WindRiver/workspace/WPILib/RobotBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/I2C.h:
 
-C:/WindRiver/workspace/WPILib/Watchdog.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/IterativeRobot.h:
 
-C:/WindRiver/workspace/WPILib/Jaguar.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h:
 
-C:/WindRiver/workspace/WPILib/SafePWM.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotBase.h:
 
-C:/WindRiver/workspace/WPILib/PWM.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Watchdog.h:
 
-C:/WindRiver/workspace/WPILib/Joystick.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Jaguar.h:
 
-C:/WindRiver/workspace/WPILib/Notifier.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SafePWM.h:
 
-C:/WindRiver/workspace/WPILib/PIDController.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PWM.h:
 
-C:/WindRiver/workspace/WPILib/Resource.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
 
-C:/WindRiver/workspace/WPILib/RobotDrive.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Notifier.h:
 
-C:/WindRiver/workspace/WPILib/SerialPort.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/PIDController.h:
 
-C:/WindRiver/workspace/WPILib/Servo.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/RobotDrive.h:
 
-C:/WindRiver/workspace/WPILib/SimpleRobot.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SerialPort.h:
 
-C:/WindRiver/workspace/WPILib/SmartDashboard.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Servo.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SimpleRobot.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SmartDashboard.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/map:
 
@@ -637,13 +647,15 @@ c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/functional:
 
-C:/WindRiver/workspace/WPILib/Solenoid.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Solenoid.h:
 
-C:/WindRiver/workspace/WPILib/Synchronized.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/SPI.h:
 
-C:/WindRiver/workspace/WPILib/Ultrasonic.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Synchronized.h:
 
-C:/WindRiver/workspace/WPILib/Utility.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Ultrasonic.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h:
 
 C:/WindRiver/vxworks-6.3/target/h/taskLib.h:
 
@@ -713,9 +725,9 @@ C:/WindRiver/vxworks-6.3/target/h/copyright_wrs.h:
 
 C:/WindRiver/vxworks-6.3/target/h/sys/taskDefs.h:
 
-C:/WindRiver/workspace/WPILib/Victor.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Victor.h:
 
-C:/WindRiver/workspace/WPILib/Vision/AxisCamera.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/AxisCamera.h:
 
 C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/sockLib.h:
 
@@ -767,40 +779,40 @@ C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/route/ipRouteLib.h:
 
 C:/WindRiver/vxworks-6.3/target/h/wrn/coreip/arpa/inet.h:
 
-C:/WindRiver/workspace/WPILib/Vision/AxisCameraParams.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/AxisCameraParams.h:
 
-C:/WindRiver/workspace/WPILib/Vision/EnumCameraParameter.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/EnumCameraParameter.h:
 
-C:/WindRiver/workspace/WPILib/Vision/IntCameraParameter.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/IntCameraParameter.h:
 
-C:/WindRiver/workspace/WPILib/ErrorBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/ErrorBase.h:
 
-C:/WindRiver/workspace/WPILib/Task.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
 
-C:/WindRiver/workspace/WPILib/Vision/ColorImage.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ColorImage.h:
 
-C:/WindRiver/workspace/WPILib/Vision/ImageBase.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/ImageBase.h:
 
-C:/WindRiver/workspace/WPILib/nivision.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/nivision.h:
 
-C:/WindRiver/workspace/WPILib/Utility.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h:
 
-C:/WindRiver/workspace/WPILib/Vision/BinaryImage.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/BinaryImage.h:
 
-C:/WindRiver/workspace/WPILib/Vision/MonoImage.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/MonoImage.h:
 
-C:/WindRiver/workspace/WPILib/Vision2009/VisionAPI.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision2009/VisionAPI.h:
 
-C:/WindRiver/workspace/WPILib/nivision.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/nivision.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/algorithm:
 
-C:/WindRiver/workspace/WPILib/Vision/Threshold.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/Threshold.h:
 
-C:/WindRiver/workspace/WPILib/Vision/HSLImage.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Vision/HSLImage.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/set:
 
-C:/WindRiver/workspace/WPILib/WPIStatus.h:
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIStatus.h:
 
 c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iostream:

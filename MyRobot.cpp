@@ -1,34 +1,17 @@
 #include "WPILib.h"
 
-/**
- * Stuff that I am thinking, and how to get it done:
- *  All of the drive motors still need to get encoders on them
- * 		Grace from electrical wired up the system for the encoders, but have not been all tested, she said that she made them so the metel part would be facing outward.
- * 		You will have to check the number of ticks on this, I am thinking about 240 or something, also if I remember correctly, you will have to set the PID for the Jaguar, (mostly should just require P and maybe a little D)
- * The encoders on the arm still need to be wired up (400 ticks per rotation)
- * 	The encoder at the shoulder should be wired to the cRIO and not the Jaguar
- * 		The reason for this is so that we can use a more complex control system that was suggested by Don
- * 		FYI: Don suggested using a double PID loop to control the arm, there are some complications with that which I (Matthew) have spent a lot of time figuring out how to get working.
- * 		 		So if you are stuck with getting this working, them just try a single PID loop, I might try to add some sample code that you can edit to get working, idk...	
- * I have made both of the plugs for the wires out on the arm and they are in the encoder box, they just need to be wired to the ends of the cable, The sheet with the information about how to do this is contained in the box as well
- * The encoder at the elbow should be wired to the Jaguar, we are going to just run the internal Pid loop provided by the Jaguar on this.
- * 
- * The compressor is wired up and programed to work, but both of the valves need to be wired
- * 		With the valves, each side comtains a diode and thus if you wire one of them backwards, then they can both be controled by the same skipe (what we are going to do)
- * 
- * If you have any problems or question about how I was going to be doing something, then let me know: (310) 483-3831 (if you did not have it all ready).
- */
-
-/**
- * This current code is as it was when the robot was running, there is the line tracking code, but noting else using sensors
- */
-
 
 #include <iostream>
 using namespace std;
 
+//#define NDEBUG
+
+#ifndef NDEBUG
 #define debug(x) \
 	std::cerr << __LINE__ << ": " << x << std::endl;
+#else
+#define debug(x) {}
+#endif
 
 class lowPass {
 private:
@@ -64,6 +47,8 @@ public:
 		double derivative = error - last_error;
 		last_error = error;
 //		if(count++%30==0) cerr << error << '\t' << integral;
+		if(integral < -25) integral = -25;
+		if(integral > 25) integral = 25;
 		return P*error + I*integral + D*derivative;
 	}
 };
@@ -76,16 +61,18 @@ class RobotSystem : public SimpleRobot
 	
 	Joystick stick; // only joystick
 	Joystick stick2;
-	CANJaguar *Dlf, *Dlb, *Drf, *Drb, *arm1, *arm2;
+	CANJaguar *Dlf, *Dlb, *Drf, *Drb, *arm1, *arm1_sec, *arm2;
 	DigitalInput line1, line2, line3;
 	Task updateCAN, cameraTask;
 	Compressor compressor;
 	Encoder EncArm, EncClaw;
 	SimplePID PIDArm, PIDClaw;
 	lowPass LowArm;
-	Relay MiniBot1, MiniBot2, ClawGrip;
-	DigitalInput LimitClaw;
+	Solenoid MiniBot1a, MiniBot1b, MiniBot2a, MiniBot2b, ClawOpen, ClawClose;
+	//Relay MiniBot1, MiniBot2, ClawGrip;
+	DigitalInput LimitClaw, LimitArm;
 	
+	Timer miniBotTime;
 	float ShoulderArmCurrent;
 public:
 	RobotSystem(void):
@@ -101,13 +88,22 @@ public:
 		,compressor(14,1)
 		,EncArm(2,3)
 		,EncClaw(5,6)
-		,PIDArm(.04,0000024,0)
+		,PIDArm(.04,0,0) // .002, .033
 		,PIDClaw(.014,.0000014,0)
 		,LowArm(.1)
+		/*
 		,MiniBot1(4)
 		,MiniBot2(2)
 		,ClawGrip(3)
+		*/
+		,MiniBot1a(8,1)
+		,MiniBot1b(8,2)
+		,MiniBot2a(8,3)
+		,MiniBot2b(8,4)
+		,ClawOpen(8, 8)
+		,ClawClose(8,7)
 		,LimitClaw(7)
+		,LimitArm(13)
 	{
 	//	myRobot.SetExpiration(0.1);
 		GetWatchdog().SetEnabled(false);
@@ -121,18 +117,20 @@ public:
 		Drf = new CANJaguar(7,CANJaguar::kSpeed);
 		Drb = new CANJaguar(2,CANJaguar::kSpeed);
 		arm1 = new CANJaguar(5);
+		arm1_sec = new CANJaguar(8);
 		arm2 = new CANJaguar(4);
 		
 		
 		EncArm.SetDistancePerPulse(.00025);
 		EncClaw.SetDistancePerPulse(.00025);
 		EncClaw.SetReverseDirection(false);
+		EncArm.SetReverseDirection(true);
 		EncArm.Reset();
 		EncClaw.Reset();
 		
 		
 		updateCAN.Start((int)this);
-		cameraTask.Start((int)this);
+		//cameraTask.Start((int)this);
 		EncArm.Start();
 		EncClaw.Start();
 		debug("done initing");
@@ -151,11 +149,15 @@ public:
 		while(true) {
 			Wait(.035 - (GetClock() - lastTime));
 			lastTime = GetClock();
-			if(self->IsEnabled())
+			if(self->IsEnabled()) {
 				CANJaguar::UpdateSyncGroup(2);
+				CANJaguar::UpdateSyncGroup(3);
+			}
+			/*
 			if(count++%10==0) {
 				self->ShoulderArmCurrent = self->arm1->GetOutputCurrent();
 			}
+			*/
 		}
 		return 0;
 	}
@@ -197,7 +199,10 @@ public:
 			Drf->EnableControl(0);
 			Drb->EnableControl(0);
 			arm1->EnableControl();
+			arm1_sec->EnableControl();
 			arm2->EnableControl();
+			
+			
 			
 			Dlf->ConfigEncoderCodesPerRev(250);
 			Dlf->SetPID(1,0,0);
@@ -209,13 +214,24 @@ public:
 			Drb->SetPID(1,0,0);
 			Wait(.1);
 			if(robotInted==false) {
-				int count=170;
+				int count=220;
 				arm2->Set(-.3);
 				while(count-->0 && LimitClaw.Get() == 1) Wait(.005);
 				arm2->Set(.15);
 				while(count-->0 && LimitClaw.Get() == 0) Wait(.005);
 				arm2->Set(0);
-				EncClaw.Reset();
+				if(count>0)
+					EncClaw.Reset();
+				arm1->Set(-.3);
+				arm1_sec->Set(-.3);
+				while(count-->0 && LimitArm.Get() == 1) Wait(.005);
+				arm1->Set(.5);
+				arm1_sec->Set(.5);
+				while(count-->0 && LimitArm.Get() == 0) Wait(.005);
+				if(count>0)
+					EncArm.Reset();
+				arm1->Set(0);
+				arm1_sec->Set(0);
 				
 				robotInted = true;
 			}
@@ -229,22 +245,40 @@ public:
 		Drb->StopMotor();
 	}
 	
-	
 	void Arm(double joy) {
-		double speed = PIDArm(0, EncArm.Get());
-		//if(speed > .5) speed = .5;
-		if(speed < -.5) speed = -.5;
-		arm1->Set(LowArm(speed),2);
+		int location = EncArm.Get();
+		/*
+		if(location < 10 && joy < 0) joy = 0;
+		if(location > 110 && joy > 0) joy = 0;
+		arm1->Set(joy);
+		arm1_sec->Set(joy);
+		return;
+		*/
+		
+		if(joy < -10) joy = -10;
+		if(joy > 110) joy = 110;
+		
+		double speed = PIDArm(joy, location);
+		if(speed > .5) speed = .5;
+		if(speed < -.3) speed = -.3;
+		if(speed < 0 && location < 10) speed = 0;
+		if(speed > 0 && location > 110) speed = 0;
+		speed = LowArm(speed);
+		if(speed < .01 && speed > -.01) speed = 0;
+		arm1->Set(speed,3);
+		arm1_sec->Set(speed,3);
+		
 	}
 	
-	void Claw(double &joy) {
+	void Claw(double joy) {
 		if(joy < 10) joy = 10;
-		if(joy > 180) joy = 180;
+		if(joy > 230) joy = 230;
 		int location = EncClaw.Get();
 		double speed = PIDClaw(joy, location);
 		//if(location < 15) speed *= .2;
 		if(speed > .32) speed = .32;
 		if(speed < -.32) speed = -.32;
+		if(speed < .1 && speed > -.1) speed = 0;
 		arm2->Set(speed,2);
 	}
 	
@@ -257,47 +291,91 @@ public:
 					
 	}
 
-	/**
-	 * Drive left & right motors for 2 seconds then stop
-	 */
 	void Autonomous(void)
 	{
-		//myRobot.SetSafetyEnabled(false);
-		//myRobot.Drive(0.5, 0.0); 	// drive forwards half speed
-		//Wait(2.0); 				//    for 2 seconds
-	//	myRobot.Drive(0.0, 0.0); 	// stop robot
-		//AxisCamera &camera = AxisCamera::GetInstance();
-		//camera.IsFreshImage();
+		GetWatchdog().SetEnabled(false);
+		AxisCamera &camera = AxisCamera::GetInstance();
 		initRobot();
+#ifdef NDEBUG
+		//return;
+#endif
 		debug("in auto");
 		Wait(1.0);
-		GetWatchdog().SetEnabled(false);
 		int count=0;
-		while(IsAutonomous() && count < 100) {
-			count++;
+		Wait(.5);
+		Arm(0);
+		Claw(0);
+		/*
+		Drive(.25, 0,0);
+		Wait(3);
+		Drive(0,0,0);
+		return;*/
+		Drive(.25, 0, 0);
+		while(IsAutonomous() && count++ < 280 && !IsDisabled()) {
+			Arm(60);
+			Claw(90);
+			/*
 			bool l1 = line1.Get();
 			bool l2 = line2.Get();
 			bool l3 = line3.Get();
-			if(l1 && l2) {
-				Drive(.25, -.25, 0);
+			cerr << l1 << '\t' << l2 << '\t' << l3 << endl;
+			if(l1 && l2 && l3) {
+				count=310;
+				break;
+			}else if(l1 && l2) {
+				Drive(.1, -.25, 0);
 			}else if(l3 && l2) {
-				Drive(.25,.25, 0);
+				Drive(.1,.25, 0);
 			}else if(l3 && l1) {
-				Drive(.2, .3, 0);
+				count -= 100;
+				Drive(.1, .6, 0);
 			}else if(l2) {
-				Drive(.45,0,0);
+				Drive(.25,0,0);
 			}else if(l1) {
-				Drive(0,0,.4);
+				Drive(0,0,-.3);
 			}else if(l3) {
-				Drive(0,0,-.4);
+				Drive(0,0,.3);
 			}else{
-				Wait(.005);
-				Drive(0,0,0);
-			}
-			Wait(0.05);
+				//Wait(.02);
+				//Drive(.1,0,0);
+			}*/
+			Wait(0.01);
+		}
+		while(IsAutonomous() && count++ < 310 && !IsDisabled()) {
+			Drive(.001,0,0);
+			Arm(60);
+			Claw(95);
+			Wait(.01);
+		}
+		ClawOpen.Set(true);
+		ClawClose.Set(false);
+		while(IsAutonomous() && count++ < 330 && !IsDisabled()) {
+			Arm(55);
+			Claw(95);
+			Drive(0,0,0);
+			Wait(.01);
+		}
+		while(IsAutonomous() && count++ < 600 && !IsDisabled()) {
+			Arm(50);
+			Claw(95);
+			Drive(-.1,0,0);
+			Wait(.01);
+		}
+		Wait(.1);
+		ClawOpen.Set(false);
+		ClawClose.Set(true);
+		while(IsAutonomous() && count++ < 800 && !IsDisabled()) {
+			Arm(0);
+			Claw(0);
+			Drive(-.1,0,0);
+			Wait(.01);
+		}
+		while(IsAutonomous() && !IsDisabled()) {
+			Drive(0,0,0);
+			Claw(0);
+			Arm(0);
 		}
 		
-		//Wait(1.0);
 	}
 
 	/**
@@ -306,7 +384,8 @@ public:
 	
 	void OperatorControl(void)
 	{
-
+		AxisCamera &camera = AxisCamera::GetInstance();
+		miniBotTime.Start();
 		initRobot();
 		
 		debug("in telop");
@@ -322,11 +401,11 @@ public:
 			cerr << "Change "<< line1.Get() <<"\t" << line2.Get() << "\t" << line3.Get() << endl;
 			Wait(0.2);
 		}*/
-		char count=0;
+		char count=0, pneumaticCount=0;
 		// was .125 when loop at .025
-		lowPass lowSpeed(.04), lowStrafe(.04), lowTurn(.04), lowClaw(.04);
+		lowPass lowSpeed(.04), lowStrafe(.04), lowTurn(.04), lowClaw(.04), lowArm(.04), lowArmLoc(.05);
 		
-		double ClawLocation=0;
+		double ClawLocation=0, ArmLocation=0, OldArmLocation=0;
 		
 		while (IsOperatorControl() && !IsDisabled())
 		{
@@ -345,66 +424,133 @@ public:
 				strafe /= 2;
 				turn /= 2;
 			}
+			if(stick.GetRawButton(2)) {
+				speed = 0;
+				turn = 0;
+			}
 			
 			Drive(lowSpeed(speed), lowTurn(turn), lowStrafe(strafe));		
 			
 			
 			
-			
+#ifndef NDEBUG
 			if(stick2.GetRawButton(10)) {
 				robotInted = false;
 				initRobot();
 			}
+#endif
 			
-			if(stick2.GetRawButton(5)) { // depoly out
-				MiniBot1.Set(Relay::kReverse);
-				MiniBot2.Set(Relay::kReverse);
+			
+			if(stick2.GetRawButton(7) && (miniBotTime.Get() >= 110 || (stick2.GetRawButton(9) && stick2.GetRawButton(10)))) { // launcher
+				// the quick launcher
+				MiniBot1a.Set(true);
+				MiniBot1b.Set(false);
+				
+			} 
+			if(!stick2.GetRawButton(10) && stick2.GetRawButton(9)) { // deploy in
+				MiniBot2a.Set(true);
+				MiniBot2b.Set(false);
+				//MiniBot2a.Set(false);
+				//MiniBot2b.Set(true);
 			}
-			if(stick2.GetRawButton(7)) { // deploy in
-				MiniBot1.Set(Relay::kForward);
-				MiniBot2.Set(Relay::kForward);
+			if(stick2.GetRawButton(5)) { // top deploy out
+				MiniBot2a.Set(false);
+				MiniBot2b.Set(true);
 			}
 			
-			if(stick2.GetRawButton(1)) {
-				ClawLocation = 156; // the "down" location
+			
+			if(stick2.GetRawButton(6)) { // open
+				ClawOpen.Set(true);
+				ClawClose.Set(false);
+			}
+			if(stick2.GetRawButton(8)) { // closed
+				ClawOpen.Set(false);
+				ClawClose.Set(true);
+				ClawLocation += 2;
+			}
+			
+			/*156 straight
+			 * 56 90 angle
+			 * 10 back
+			 */
+			
+			if(stick2.GetRawButton(1)) { // top peg
+				ClawLocation = 156;
+				ArmLocation = 105;
 			}
 			if(stick2.GetRawButton(2)) {
-				ClawLocation = 56; // the 90angle
+				ClawLocation = 111; // the 90angle / middle peg
+				ArmLocation = 50;
+			}
+			if(stick2.GetRawButton(3)) { // off ground
+				ClawLocation = 176;
+				ArmLocation = 5;
 			}
 			if(stick2.GetRawButton(4)) {
 				ClawLocation = 0; // back
+				ArmLocation = 0;
 			}
 			
-			if(stick2.GetRawButton(6)) {
-				ClawGrip.Set(Relay::kForward);
-			}
-			if(stick2.GetRawButton(8)) {
-				ClawGrip.Set(Relay::kReverse);
-			}
+			double tmpClaw = .7*lowClaw(stick2.GetRawAxis(4));
+			if(tmpClaw < .2 && tmpClaw > -.2) tmpClaw = 0;
 			
-			ClawLocation += lowClaw(stick2.GetRawAxis(4)); // the right joy stick y
-			Claw(ClawLocation);
-			//arm2->Set(range(stick2.GetRawAxis(2)));
-			
-			//arm1->Set(range(stick2.GetRawAxis(4)));
-			
-			//Arm(stick2.GetRawAxis(4));
+			double tmpArm = .4*lowArm(-1*stick2.GetRawAxis(2));
+			if(tmpArm < .2 && tmpArm > -.2) tmpArm = 0;
+			if(tmpArm > .5) tmpArm = .5;
+			if(tmpArm < -.5) tmpArm = -.5;
 						
 			
+			ClawLocation += tmpClaw + tmpArm; // the right joy stick y
+			
+			if(ClawLocation < 10) ClawLocation = 10;
+			if(ClawLocation > 230) ClawLocation = 230;
+			
+			Claw(ClawLocation);
+			
+			
+			ArmLocation += tmpArm;
+			if(ArmLocation > 110) ArmLocation = 110;
+			if(ArmLocation < -10)  ArmLocation = -10;
+			
+			Arm(lowArmLoc(ArmLocation));
+			OldArmLocation = ArmLocation;
+						
+#ifndef NDEBUG
 			if(count++%20==0){
-				cerr << arm1->GetOutputCurrent() << '\t' << arm2->GetOutputCurrent() << '\t'
-				 	<< EncClaw.Get() << '\t' << arm2->Get() << '\t' << LimitClaw.Get() << '\t' << ClawLocation << endl;
+			cerr << EncClaw.Get() << '\t' << arm1->GetOutputCurrent() << '\t' << arm1_sec->GetOutputCurrent() << '\t' << ArmLocation << '\t' << EncArm.Get() << endl; 
+				//	cerr << arm1->GetOutputCurrent() << '\t' << arm1_sec->GetOutputCurrent() << '\t' << arm2->GetOutputCurrent() << '\t'
+			//	 	<< EncArm.Get () << '\t' << LimitArm.Get() << '\t' << EncClaw.Get() << '\t' << LimitClaw.Get() << '\t' << ClawLocation << endl;
 				//cerr << '\t' << EncArm.Get() <<'\t' << arm1->Get() << endl;
 			//	cerr << Dlf->Get() << '\t' << Dlf->GetSpeed() << '\t' << Dlb->GetSpeed() <<'\t' << Drf->GetSpeed() <<'\t' << Drb->GetSpeed() <<endl;//'\t' << line1.Get() << "\t" << line2.Get() << "\t" << line3.Get() << endl;
 			//	cerr << '\t' << Dlb->GetSpeed() << '\t';
 			}
-			
+#endif			
+
+			if(pneumaticCount++==0) {
+				ClawOpen.Set(false);
+				ClawClose.Set(false);
+				MiniBot1a.Set(false);
+				MiniBot1b.Set(false);
+				MiniBot2a.Set(false);
+				MiniBot2b.Set(false);
+			}
 			
 			Wait(0.01);				// wait for a motor update time
 		}
 	}
 };
 
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class PnumaticArmTest : public SimpleRobot {
 private:
@@ -476,8 +622,43 @@ public:
 	}
 };
 
-//START_ROBOT_CLASS(RobotSystem);
-START_ROBOT_CLASS(PnumaticArmTest);
+class OldRobotDemo : public SimpleRobot {
+private:
+	CANJaguar *Dlf, *Dlb, *Drb, *Drf;
+	Joystick stick;
+	lowPass speed, turn, strafe;
+public:
+	OldRobotDemo (void) :
+		stick(1),
+		speed(.05),
+		turn(.05),
+		strafe(.05)
+		{
+		Wait(3.0);
+		Dlf = new CANJaguar(4);
+		Dlb = new CANJaguar(5);
+		Drf = new CANJaguar(3);
+		Drb = new CANJaguar(2);
+		}
+	void OperatorControl(void) {
+		while(!IsDisabled()) {
+			GetWatchdog().Feed();
+			float speed = stick.GetRawAxis(2);
+			float strafe = -1*stick.GetRawAxis(1);
+			float turn = -1*stick.GetRawAxis(3);
+			Dlf->Set(speed + turn + strafe);
+			Dlb->Set(speed + turn - strafe);
+			Drf->Set(-speed + turn + strafe);
+			Drb->Set(-speed + turn - strafe);
+			Wait(.05);	
+		}
+	}
+};
+
+//START_ROBOT_CLASS(OldRobotDemo);
+
+START_ROBOT_CLASS(RobotSystem);
+//START_ROBOT_CLASS(PnumaticArmTest);
 
 extern "C" INT32 FRC_ROBOT_START () {
 	return FRC_UserProgram_StartupLibraryInit();
