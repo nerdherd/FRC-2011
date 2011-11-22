@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-//#define NDEBUG
+#define NDEBUG
 
 #ifndef NDEBUG
 #define debug(x) \
@@ -448,14 +448,14 @@ public:
 				
 			} 
 			if(!stick2.GetRawButton(10) && stick2.GetRawButton(9)) { // deploy in
-				MiniBot2a.Set(true);
-				MiniBot2b.Set(false);
+				MiniBot2a.Set(false);
+				MiniBot2b.Set(true);
 				//MiniBot2a.Set(false);
 				//MiniBot2b.Set(true);
 			}
 			if(stick2.GetRawButton(5)) { // top deploy out
-				MiniBot2a.Set(false);
-				MiniBot2b.Set(true);
+				MiniBot2a.Set(true);
+				MiniBot2b.Set(false);
 			}
 			
 			
